@@ -5,7 +5,7 @@
 static const unsigned int borderpx       = 0;   /* border pixel of windows */
 static const int corner_radius           = 10;
 #else
-static const unsigned int borderpx       = 1;   /* border pixel of windows */
+static const unsigned int borderpx       = 2;   /* border pixel of windows */
 #endif // ROUNDED_CORNERS_PATCH
 static const unsigned int snap           = 32;  /* snap pixel */
 #if SWALLOW_PATCH
@@ -118,7 +118,7 @@ static char normfloatcolor[]             = "#db8fd9";
 
 static char selfgcolor[]                 = "#eeeeee";
 static char selbgcolor[]                 = "#005577";
-static char selbordercolor[]             = "#005577";
+static char selbordercolor[]             = "#ff0000";
 static char selfloatcolor[]              = "#005577";
 
 static char titlenormfgcolor[]           = "#bbbbbb";
@@ -677,7 +677,7 @@ static const char *xkb_layouts[]  = {
 #endif // XKB_PATCH
 
 /* key definitions */
-#define MODKEY Mod1Mask
+#define MODKEY Mod4Mask
 #if COMBO_PATCH && SWAPTAGS_PATCH && TAGOTHERMONITOR_PATCH
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      comboview,      {.ui = 1 << TAG} }, \
@@ -825,15 +825,14 @@ static Key keys[] = {
 	#if STACKER_PATCH
 	STACKKEYS(MODKEY,                              focus)
 	STACKKEYS(MODKEY|ShiftMask,                    push)
+	#elif FOCUSDIR_PATCH
+	{ MODKEY,                       XK_h,          focusdir,               {.i = 0 } }, // left
+	{ MODKEY,                       XK_l,          focusdir,               {.i = 1 } }, // right
+	{ MODKEY,                       XK_k,          focusdir,               {.i = 2 } }, // up
+	{ MODKEY,                       XK_j,          focusdir,               {.i = 3 } }, // down
 	#else
 	{ MODKEY,                       XK_j,          focusstack,             {.i = +1 } },
 	{ MODKEY,                       XK_k,          focusstack,             {.i = -1 } },
-	#endif // STACKER_PATCH
-	#if FOCUSDIR_PATCH
-	{ MODKEY,                       XK_Left,       focusdir,               {.i = 0 } }, // left
-	{ MODKEY,                       XK_Right,      focusdir,               {.i = 1 } }, // right
-	{ MODKEY,                       XK_Up,         focusdir,               {.i = 2 } }, // up
-	{ MODKEY,                       XK_Down,       focusdir,               {.i = 3 } }, // down
 	#endif // FOCUSDIR_PATCH
 	#if SWAPFOCUS_PATCH && PERTAG_PATCH
 	{ MODKEY,                       XK_s,          swapfocus,              {.i = -1 } },
@@ -852,8 +851,8 @@ static Key keys[] = {
 	{ MODKEY|Mod4Mask|ShiftMask,    XK_k,          inplacerotate,          {.i = -1} },
 	#endif // INPLACEROTATE_PATCH
 	#if PUSH_PATCH || PUSH_NO_MASTER_PATCH
-	{ MODKEY|ControlMask,           XK_j,          pushdown,               {0} },
-	{ MODKEY|ControlMask,           XK_k,          pushup,                 {0} },
+	{ MODKEY|ShiftMask,             XK_d,          pushdown,               {0} },
+	{ MODKEY|ShiftMask,             XK_u,          pushup,                 {0} },
 	#endif // PUSH_PATCH / PUSH_NO_MASTER_PATCH
 	{ MODKEY,                       XK_i,          incnmaster,             {.i = +1 } },
 	{ MODKEY,                       XK_d,          incnmaster,             {.i = -1 } },
@@ -861,12 +860,12 @@ static Key keys[] = {
 	{ MODKEY|ControlMask,           XK_i,          incnstack,              {.i = +1 } },
 	{ MODKEY|ControlMask,           XK_u,          incnstack,              {.i = -1 } },
 	#endif // FLEXTILE_DELUXE_LAYOUT
-	{ MODKEY,                       XK_h,          setmfact,               {.f = -0.05} },
-	{ MODKEY,                       XK_l,          setmfact,               {.f = +0.05} },
+	{ MODKEY|ShiftMask,             XK_h,          setmfact,               {.f = -0.05} },
+	{ MODKEY|ShiftMask,             XK_l,          setmfact,               {.f = +0.05} },
 	#if CFACTS_PATCH
-	{ MODKEY|ShiftMask,             XK_h,          setcfact,               {.f = +0.25} },
-	{ MODKEY|ShiftMask,             XK_l,          setcfact,               {.f = -0.25} },
-	{ MODKEY|ShiftMask,             XK_o,          setcfact,               {0} },
+	{ MODKEY|ControlMask,           XK_h,          setcfact,               {.f = +0.25} },
+	{ MODKEY|ControlMask,           XK_l,          setcfact,               {.f = -0.25} },
+	{ MODKEY|ControlMask,           XK_o,          setcfact,               {0} },
 	#endif // CFACTS_PATCH
 	#if ASPECTRESIZE_PATCH
 	{ MODKEY|ControlMask|ShiftMask, XK_e,          aspectresize,           {.i = +24} },
@@ -962,7 +961,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_c,          setlayout,              {.v = &layouts[3]} },
 	#endif // COLUMNS_LAYOUT
 	#if FLEXTILE_DELUXE_LAYOUT
-	{ MODKEY|ControlMask,           XK_t,          rotatelayoutaxis,       {.i = +1 } },   /* flextile, 1 = layout axis */
+	{ MODKEY|ShiftMask,             XK_t,          rotatelayoutaxis,       {.i = +1 } },   /* flextile, 1 = layout axis */
 	{ MODKEY|ControlMask,           XK_Tab,        rotatelayoutaxis,       {.i = +2 } },   /* flextile, 2 = master axis */
 	{ MODKEY|ControlMask|ShiftMask, XK_Tab,        rotatelayoutaxis,       {.i = +3 } },   /* flextile, 3 = stack axis */
 	{ MODKEY|ControlMask|Mod1Mask,  XK_Tab,        rotatelayoutaxis,       {.i = +4 } },   /* flextile, 4 = secondary stack axis */

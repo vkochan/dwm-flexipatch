@@ -227,13 +227,13 @@
  *
  * https://dwm.suckless.org/patches/anybar/
  */
-#define BAR_ANYBAR_PATCH 0
+#define BAR_ANYBAR_PATCH 1
 
 /* Anybar option to place the next bar depending on previous bar's position (top or bottom) */
-#define BAR_ANYBAR_TOP_AND_BOTTOM_BARS_PATCH 0
+#define BAR_ANYBAR_TOP_AND_BOTTOM_BARS_PATCH 1
 
 /* Anybar option to let dwm manage the width of the bar */
-#define BAR_ANYBAR_MANAGE_WIDTH_PATCH 0
+#define BAR_ANYBAR_MANAGE_WIDTH_PATCH 1
 
 /* This patch adds a border around the status bar(s) just like the border of client windows.
  * https://codemadness.org/paste/dwm-border-bar.patch
@@ -465,7 +465,7 @@
 /* The cyclelayouts patch lets you cycle through all your layouts.
  * https://dwm.suckless.org/patches/cyclelayouts/
  */
-#define CYCLELAYOUTS_PATCH 0
+#define CYCLELAYOUTS_PATCH 1
 
 /* Make dwm respect _MOTIF_WM_HINTS property, and not draw borders around windows requesting
  * for it. Some applications use this property to notify window managers to not draw window
@@ -554,7 +554,7 @@
 /* Allows focusing on clients based on direction (up, down, left, right) instead of client order.
  * https://github.com/bakkeby/patches/wiki/focusdir/
  */
-#define FOCUSDIR_PATCH 0
+#define FOCUSDIR_PATCH 1
 
 /* A simple patch that just puts focus back to the master client.
  * https://dwm.suckless.org/patches/focusmaster/
@@ -627,7 +627,7 @@
  * can be performed.
  * https://dwm.suckless.org/patches/keymodes/
  */
-#define KEYMODES_PATCH 0
+#define KEYMODES_PATCH 1
 
 /* This patch adds a keybinding to kills all visible clients that are not selected.
  * https://dwm.suckless.org/patches/killunsel/
@@ -699,7 +699,7 @@
  * Zoom video conferencing application.
  * https://github.com/bakkeby/patches/wiki/netclientliststacking/
  */
-#define NET_CLIENT_LIST_STACKING_PATCH 0
+#define NET_CLIENT_LIST_STACKING_PATCH 1
 
 /* Removes the border when there is only one window visible.
  * https://dwm.suckless.org/patches/noborder/
@@ -756,7 +756,7 @@
  * monitor (default).
  * https://dwm.suckless.org/patches/pertag/
  */
-#define PERTAG_PATCH 0
+#define PERTAG_PATCH 1
 
 /* Option to store gaps on a per tag basis rather than on a per monitor basis.
  * Depends on both pertag and vanitygaps patches being enabled.
@@ -776,7 +776,7 @@
 /* This patch provides a way to move clients up and down inside the client list.
  * https://dwm.suckless.org/patches/push/
  */
-#define PUSH_PATCH 0
+#define PUSH_PATCH 1
 
 /* This patch provides a way to move clients up and down inside the client list,
  * but does not push up or down into the master area (except that it does not take
@@ -950,7 +950,7 @@
 /* Adds toggleable keyboard shortcut to make a client 'sticky', i.e. visible on all tags.
  * https://dwm.suckless.org/patches/sticky/
  */
-#define STICKY_PATCH 0
+#define STICKY_PATCH 1
 
 /* This patch adds "window swallowing" to dwm as known from Plan 9's windowing system rio.
  * Clients marked with isterminal in config.h swallow a window opened by any child process,
@@ -967,7 +967,7 @@
  *
  * https://dwm.suckless.org/patches/swallow/
  */
-#define SWALLOW_PATCH 0
+#define SWALLOW_PATCH 1
 
 /* This patch depends on the pertag patch and makes it possible to switch focus with a single
  * shortcut (MOD+s) instead of having to think if you should use mod-j or mod-k for reaching
@@ -1184,17 +1184,17 @@
 /* Bottomstack layout.
  * https://dwm.suckless.org/patches/bottomstack/
  */
-#define BSTACK_LAYOUT 0
+#define BSTACK_LAYOUT 1
 
 /* Bottomstack horizontal layout.
  * https://dwm.suckless.org/patches/bottomstack/
  */
-#define BSTACKHORIZ_LAYOUT 0
+#define BSTACKHORIZ_LAYOUT 1
 
 /* Centered master layout.
  * https://dwm.suckless.org/patches/centeredmaster/
  */
-#define CENTEREDMASTER_LAYOUT 0
+#define CENTEREDMASTER_LAYOUT 1
 
 /* Centered floating master layout.
  * https://dwm.suckless.org/patches/centeredmaster/
@@ -1205,28 +1205,28 @@
  * columns (i.e. left to right).
  * https://dwm.suckless.org/patches/columns/
  */
-#define COLUMNS_LAYOUT 0
+#define COLUMNS_LAYOUT 1
 
 /* Deck layout.
  * https://dwm.suckless.org/patches/deck/
  */
-#define DECK_LAYOUT 0
+#define DECK_LAYOUT 1
 
 /* Fibonacci dwindle layout.
  * https://dwm.suckless.org/patches/fibonacci/
  */
-#define FIBONACCI_DWINDLE_LAYOUT 0
+#define FIBONACCI_DWINDLE_LAYOUT 1
 
 /* Fibonacci spiral layout.
  * https://dwm.suckless.org/patches/fibonacci/
  */
-#define FIBONACCI_SPIRAL_LAYOUT 0
+#define FIBONACCI_SPIRAL_LAYOUT 1
 
 /* Flextile deluxe layout.
  * A revamped, more flexible, and over-the-top version of the original flextile layout.
  * https://dwm.suckless.org/patches/flextile/ (original)
  */
-#define FLEXTILE_DELUXE_LAYOUT 0
+#define FLEXTILE_DELUXE_LAYOUT 1
 
 /* Gappless grid layout.
  * https://dwm.suckless.org/patches/gaplessgrid/
@@ -1236,17 +1236,17 @@
 /* Gridmode (grid) layout.
  * https://dwm.suckless.org/patches/gridmode/
  */
-#define GRIDMODE_LAYOUT 0
+#define GRIDMODE_LAYOUT 1
 
 /* Horizontal grid (horizgrid) layout.
  * https://dwm.suckless.org/patches/horizgrid/
  */
-#define HORIZGRID_LAYOUT 0
+#define HORIZGRID_LAYOUT 1
 
 /* Grid layout where nmaster controls the number of rows.
  * https://dwm.suckless.org/patches/nrowgrid/
  */
-#define NROWGRID_LAYOUT 0
+#define NROWGRID_LAYOUT 1
 
 /* The default tile layout.
  * This can be optionally disabled in favour of other layouts.
