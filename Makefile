@@ -54,11 +54,13 @@ dist: clean
 install: all
 	mkdir -p ${DESTDIR}${PREFIX}/bin
 	cp -f dwm ${DESTDIR}${PREFIX}/bin
+	cp -f dwm-open ${DESTDIR}${PREFIX}/bin
 ifdef YAJLLIBS
 	cp -f dwm-msg ${DESTDIR}${PREFIX}/bin
 endif
 	#cp -f patch/dwmc ${DESTDIR}${PREFIX}/bin
 	chmod 755 ${DESTDIR}${PREFIX}/bin/dwm
+	chmod 755 ${DESTDIR}${PREFIX}/bin/dwm-open
 ifdef YAJLLIBS
 	chmod 755 ${DESTDIR}${PREFIX}/bin/dwm-msg
 endif

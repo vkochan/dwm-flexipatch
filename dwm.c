@@ -4867,6 +4867,7 @@ main(int argc, char *argv[])
 	XrmInitialize();
 	loadxrdb();
 	#endif // XRDB_PATCH && !BAR_VTCOLORS_PATCH
+	setenv("NNN_OPENER", "dwm-open", 1);
 	#if COOL_AUTOSTART_PATCH
 	autostart_exec();
 	#endif // COOL_AUTOSTART_PATCH
