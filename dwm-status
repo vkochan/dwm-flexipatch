@@ -55,6 +55,9 @@ network() {
 	fi
 }
 
+xcompmgr -fF -I-.002 -O-.003 -D1 &
+[ -x ~/.fehbg ] && sh ~/.fehbg
+
 while xsetroot -name "$(cpu)|$(ram)|$(fsmon)|$(usbmon)|$(network)|$(clock)"
 do
 	sleep 1
