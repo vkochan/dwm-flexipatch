@@ -56,6 +56,7 @@ install: all
 	cp -f dwm ${DESTDIR}${PREFIX}/bin
 	cp -f dwm-open ${DESTDIR}${PREFIX}/bin
 	cp -f dwm-start ${DESTDIR}${PREFIX}/bin
+	cp -f dwm-xkbtog ${DESTDIR}${PREFIX}/bin
 ifdef YAJLLIBS
 	cp -f dwm-msg ${DESTDIR}${PREFIX}/bin
 endif
@@ -63,6 +64,7 @@ endif
 	chmod 755 ${DESTDIR}${PREFIX}/bin/dwm
 	chmod 755 ${DESTDIR}${PREFIX}/bin/dwm-open
 	chmod 755 ${DESTDIR}${PREFIX}/bin/dwm-start
+	chmod 755 ${DESTDIR}${PREFIX}/bin/dwm-xkbtog
 ifdef YAJLLIBS
 	chmod 755 ${DESTDIR}${PREFIX}/bin/dwm-msg
 endif

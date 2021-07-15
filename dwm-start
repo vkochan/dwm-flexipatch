@@ -54,10 +54,15 @@ network() {
 	fi
 }
 
+lang() {
+	lang=$(setxkbmap -query | grep layout | awk -F':' '{ print $2; }' | sed -e 's/[ \t]\?//g')
+	echo "⌨ $lang"
+}
+
 xcompmgr -fF -I-.002 -O-.003 -D1 &
 [ -x ~/.fehbg ] && sh ~/.fehbg
 
-while xsetroot -name "$(cpu)|$(ram)|$(fsmon)|$(network)|$(clock)"
+while xsetroot -name "|$(lang)|$(cpu)|$(ram)|$(fsmon)|$(network)|$(clock)"
 do
 	sleep 1
 done &
