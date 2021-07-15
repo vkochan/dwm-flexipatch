@@ -4,6 +4,8 @@ ftype=$(file -b --mime-type $1)
 
 if [[ "$ftype" =~ text/* ]]; then
     st -e vim $1 &
+elif [[ "$ftype" =~ application/pdf* ]]; then
+    mupdf $1 &
 else
     xdg-open $1 &
 fi
