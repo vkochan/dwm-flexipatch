@@ -833,10 +833,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_l,          focusdir,               {.i = 1 } }, // right
 	{ MODKEY,                       XK_k,          focusdir,               {.i = 2 } }, // up
 	{ MODKEY,                       XK_j,          focusdir,               {.i = 3 } }, // down
-	#else
-	{ MODKEY,                       XK_j,          focusstack,             {.i = +1 } },
-	{ MODKEY,                       XK_k,          focusstack,             {.i = -1 } },
-	#endif // FOCUSDIR_PATCH
+	#endif
+	{ MODKEY|ShiftMask,             XK_j,          focusstack,             {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_k,          focusstack,             {.i = -1 } },
 	#if SWAPFOCUS_PATCH && PERTAG_PATCH
 	{ MODKEY,                       XK_s,          swapfocus,              {.i = -1 } },
 	#endif // SWAPFOCUS_PATCH
