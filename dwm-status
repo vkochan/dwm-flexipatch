@@ -59,7 +59,7 @@ lang() {
         echo "⌨ $lang"
 }
  
-while xsetroot -name "|$(lang)|$(cpu)|$(ram)|$(fsmon)|$(network)|$(clock)"
+while xsetroot -name "|$(lang)|$(cpu)|$(ram)|$(network)|$(clock)"
 do
         sleep 1
 done &
