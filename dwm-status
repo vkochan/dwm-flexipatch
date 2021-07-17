@@ -1,0 +1,65 @@
+#!/bin/sh
+
+usbmon() {
+        usb1=$(lsblk -la | awk '/sdc1/ { print $1 }')
+        usb1mounted=$(lsblk -la | awk '/sdc1/ { print $7 }')
+ 
+        if [ "$usb1" ]; then
+                if [ -z "$usb1mounted" ]; then
+                        echo " |"
+                else
+                        echo " $usb1 |"
+                fi
+        fi
+}
+ 
+fsmon() {
+        ROOTPART=$(df -h | awk '/\/$/ { print $3}')
+        HOMEPART=$(df -h | awk '/\/home/ { print $3}')
+        SWAPPART=$(cat /proc/swaps | awk '/\// { print $4 }')
+ 
+        echo "⛁ $ROOTPART 🏠 $HOMEPART = $SWAPPART"
+}
+ 
+ram() {
+        mem=$(free -h | awk '/Mem:/ { print $3 }' | cut -f1 -d 'i')
+        echo "🁡$mem"
+}
+ 
+cpu() {
+        read -r cpu a b c previdle rest < /proc/stat
+        prevtotal=$((a+b+c+previdle))
+        sleep 0.5
+        read -r cpu a b c idle rest < /proc/stat
+        total=$((a+b+c+idle))
+        cpu=$((100*( (total-prevtotal) - (idle-previdle) ) / (total-prevtotal) ))
+        echo  "🔲$cpu%"
+}
+ 
+clock() {
+        dte=$(date +"%D")
+        time=$(date +"%H:%M")
+ 
+        echo "📅$dte ⌚$time"
+}
+
+network() {
+        conntype=$(ip route | awk '/default/ { print substr($5,1,1) }')
+        if [ -z "$conntype" ]; then
+                echo "⛼ down"
+        elif [ "$conntype" = "e" ]; then
+                echo "⛼ up"
+        elif [ "$conntype" = "w" ]; then
+                echo "📶 up"
+        fi
+}
+ 
+lang() {
+        lang=$(setxkbmap -query | grep layout | awk -F':' '{ print $2; }' | sed -e 's/[ \t]\?//g')
+        echo "⌨ $lang"
+}
+ 
+while xsetroot -name "|$(lang)|$(cpu)|$(ram)|$(fsmon)|$(network)|$(clock)"
+do
+        sleep 1
+done &
