@@ -59,6 +59,7 @@ install: all
 	cp -f dwm-xkbtog ${DESTDIR}${PREFIX}/bin
 	cp -f dwm-status ${DESTDIR}${PREFIX}/bin
 	cp -f dwm-editor ${DESTDIR}${PREFIX}/bin
+	cp -f dwm-term ${DESTDIR}${PREFIX}/bin
 ifdef YAJLLIBS
 	cp -f dwm-msg ${DESTDIR}${PREFIX}/bin
 endif
@@ -69,6 +70,7 @@ endif
 	chmod 755 ${DESTDIR}${PREFIX}/bin/dwm-xkbtog
 	chmod 755 ${DESTDIR}${PREFIX}/bin/dwm-status
 	chmod 755 ${DESTDIR}${PREFIX}/bin/dwm-editor
+	chmod 755 ${DESTDIR}${PREFIX}/bin/dwm-term
 ifdef YAJLLIBS
 	chmod 755 ${DESTDIR}${PREFIX}/bin/dwm-msg
 endif

@@ -779,7 +779,7 @@ static const char *dmenucmd[] = {
 	#endif // BAR_DMENUMATCHTOP_PATCH
 	NULL
 };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "dwm-term", NULL };
 static const char *xkbtogcmd[] = { "dwm-xkbtog", NULL };
 static const char *editcmd[] = { "dwm-editor", NULL };
 
