@@ -1,0 +1,16 @@
+#!/bin/sh
+
+DMENU_FONT="monospace:size=10"
+DMENU_NORM_BG="#222222"
+DMENU_NORM_FG="#bbbbbb"
+DMENU_SEL_BG="#005577"
+DMENU_SEL_FG="#eeeeee"
+DMENU_LINES="30"
+
+dmenu_run -l ${DMENU_LINES} \
+		-fn ${DMENU_FONT} \
+		-nb ${DMENU_NORM_BG} \
+		-nf ${DMENU_NORM_FG} \
+		-sb ${DMENU_SEL_BG} \
+		-sf ${DMENU_SEL_FG} \
+		$@
