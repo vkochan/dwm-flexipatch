@@ -58,8 +58,28 @@ lang() {
         lang=$(setxkbmap -query | grep layout | awk -F':' '{ print $2; }' | sed -e 's/[ \t]\?//g')
         echo "⌨ $lang"
 }
+
+power() {
+    local status="UNK"
+    local cap="0"
+
+    if [ -e /sys/class/power_supply/BAT0 ]; then
+        status="$(cat /sys/class/power_supply/BAT0/status)"
+        cap="$(cat /sys/class/power_supply/BAT0/capacity)"
+
+        if [ "${status}" == "Unknown" ]; then
+            acpi -a | grep -q "on-line" && status="CHR"
+            acpi -a | grep -q "off-line" && status="DIS"
+        else
+            [ "${status}" == "Charging" ] && status="CHR"
+            [ "${status}" == "Discharging" ] && status="DIS"
+        fi
+
+        printf "${status} ${cap}%%"
+    fi
+}
  
-while xsetroot -name "|$(lang)|$(cpu)|$(ram)|$(network)|$(clock)"
+while xsetroot -name "|$(lang)|$(cpu)|$(ram)|$(network)|$(clock)|$(power)"
 do
         sleep 1
 done &
